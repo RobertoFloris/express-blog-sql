@@ -13,7 +13,7 @@ const port = 3000;
 
 app.use(express.static('public'));
 
-app.use(checkTime);
+// app.use(checkTime);
 app.use(errorsHandler);
 // app.use(notFound);
 app.use(sanitizeData);
