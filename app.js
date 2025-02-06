@@ -13,18 +13,19 @@ const port = 3000;
 
 app.use(express.static('public'));
 
-// app.use(checkTime);
-app.use(errorsHandler);
-// app.use(notFound);
-app.use(sanitizeData);
-
 app.use(express.json());
+
+app.use(sanitizeData);
+app.use(checkTime);
 
 app.get('/', (req, res) => {
   res.send("Server dei post")
 })
 
 app.use('/posts', postsRouter)
+
+app.use(errorsHandler);
+app.use(notFound);
 
 app.listen(port, () => {
   console.log(`Sono in ascolto alla porta ${port}`);
